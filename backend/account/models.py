@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-
-
+from django.http import HttpRequest
+import os
 
 class MyAccountManager(BaseUserManager):
     def create_user(self, email, username, password=None):
@@ -31,27 +31,29 @@ class MyAccountManager(BaseUserManager):
         return user
 
 
-def get_profile_image_filepath(self, filename):
-    return 'profile/profile_images/' + str(self.pk) + '/profile_image.png'
-
-
-def get_default_profile_image():
-    return "profile/profile_default/default_profile_image.png"
+def get_profile_image_path(instance, filename):
+    # Get the filename extension
+    ext = filename.split('.')[-1]
+    # Generate a new filename with the user's ID
+    filename = f"profile_image.{ext}"
+    # Create a folder using the user's ID
+    folder = str(instance.id)
+    # Return the relative path to the file
+    return os.path.join('profile_images', folder, filename)
 
 
 class Account(AbstractBaseUser):
     email = models.EmailField(max_length=60, unique=True)
     username = models.CharField(max_length=30, unique=True)
+    profile_image = models.ImageField(upload_to=get_profile_image_path, default='default_profile_image.png')
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
     is_admin= models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    profile_image = models.ImageField(max_length=255, upload_to=get_profile_image_filepath, null=True, blank = True, default=get_default_profile_image)
     hide_email = models.BooleanField(default=True)
-    # ip=
-    # location=
+    ip_address = models.GenericIPAddressField(blank=True, null=True)
 
 
     USERNAME_FIELD = 'email'
@@ -60,9 +62,6 @@ class Account(AbstractBaseUser):
 
     def __str__(self):
         return self.username
-
-    def get_profile_image_filename(self):
-        return str(self.profile_image)[str(self.profile_image).index('profile_image/' + str(self.pk) + "/"):]
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
@@ -73,3 +72,10 @@ class Account(AbstractBaseUser):
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
+    
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            # New user is being created, capture the IP address
+            request = HttpRequest()
+            self.ip_address = request.META.get('REMOTE_ADDR')
+        super().save(*args, **kwargs)
