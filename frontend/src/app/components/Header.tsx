@@ -3,16 +3,17 @@ import { Fragment,useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import {images} from "../../assets/index"
+import Link from 'next/link'
 const navigation = [
-  { name: 'Home', href: '#banner', current: true },
-  { name: 'Features', href: '#features', current: false },
+  { name: 'Home', href: '/', current: false},
+  { name: 'Features', href: 'features', current: false },
   // { name: 'Pricing', href: '#', current: false },
   // { name: 'Demo', href: '#', current: false },
-  { name: 'About', href: '#', current: false },
-  { name: 'Team', href: '#', current: false },
+  { name: 'About', href: 'about', current: false },
+  { name: 'Team', href: 'team', current: false },
   // { name: 'FAQ', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false },
-  { name: 'Blog', href: '#', current: false },
+  { name: 'Contact', href: 'contact', current: false },
+  { name: 'Blog', href: 'blog', current: false },
 ]
 
 function classNames(...classes:any) {
@@ -22,7 +23,7 @@ function classNames(...classes:any) {
  const Header = () => {
   const [isloggedin, setIsloggedin] = useState(false)
   return (
-    <Disclosure as="nav" className="bg-black z-40 top-0 sticky">
+    <Disclosure as="nav" className="bg-black bg-opacity-60 z-40 top-0 sticky">
       {({ open }) => (
         <>
           <div className=" mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 top-0 sticky">
@@ -90,8 +91,10 @@ function classNames(...classes:any) {
                       /> : "" } 
                     </Menu.Button>
                   </div>
-                      <button className='px-2 py-1 mx-2 border max-sm:text-xs border-gray-500 rounded-lg'>Login</button>
-                      <button className='px-2 py-1 mx-2 border max-sm:text-xs border-gray-500 rounded-lg'>Sign Up</button>
+                  <div className='flex flex-row md:text-xs lg:text-md max-sm:text-xs'>
+                      <Link className='px-1 py-1 mx-1 border hover:bg-blue-400 hover:border-black border-gray-500 rounded-lg' href="/login">Login</Link>
+                      <button className='px-1 py-1 mx-1 border  border-gray-500 hover:bg-blue-400 hover:border-black rounded-lg'>Sign Up</button>
+                  </div>
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
