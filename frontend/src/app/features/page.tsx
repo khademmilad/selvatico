@@ -84,7 +84,7 @@ const features = [
 ];
 const Features = () => {
   return (
-    <section className="m-4 md:m-8 max-sm:pt-20 dark:bg-transparent justify-center dark:text-gray-100 ">
+    <section className="h-screen m-4 md:m-8 max-sm:pt-20 dark:bg-transparent pt-10 justify-center dark:text-gray-100 ">
       <div className="container mx-auto p-4 my-6 space-y-2 text-center">
         <h2 className="text-xl sm:text-2xl md:text-5xl font-bold">
           Elevating User Experience through Support
@@ -101,9 +101,10 @@ const Features = () => {
                 animate="visible"
 				whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.9 }}
+    key={feature.id}
               >
           <div className="flex flex-col max-sm:py-1 items-center px-10 py-5 border border-transparent rounded-full shadow-gray-900 shadow-lg bg-opacity-50 backdrop-filter backdrop-blur-lg ">
-               <motion.li key={feature.id} className="item flex flex-col justify-center items-center gap-2 " variants={item} >
+               <motion.li className="item flex flex-col justify-center items-center gap-2 " variants={item} >
                   <img src={feature.svg.src} className="h-10 w-10" />
                   <h3 className="text-md max-sm:gap-0 font-bold sm:text-md md:text-2xl text-green-300 ">
                     {feature.title}
