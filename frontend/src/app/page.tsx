@@ -1,11 +1,16 @@
+import RootLayout from "./layout";
+import Features from "./features/page";
 
-import MainLayout from '../components/layouts/MainLayout';
-import HeroSection from '../components/HeroSection';
+import Banner from "./components/Banner";
 
 export default function Home() {
   return (
-    <MainLayout>
-    <HeroSection />
-   </MainLayout>
-  )
+    <>
+      <Banner />
+      
+      <Features />
+
+     
+       </>
+  );
 }
