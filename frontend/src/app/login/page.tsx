@@ -104,7 +104,7 @@ console.log("submitted")
                   </label>
                 </div>
 
-                <Link className="hover:text-purple-300 transition duration-150 ease-in-out" href="passwordreset ">Forgot password?</Link>
+                <Link className="hover:text-purple-300" href="passwordreset ">Forgot password?</Link>
               </div>
 
               <div className="text-center lg:text-left">
