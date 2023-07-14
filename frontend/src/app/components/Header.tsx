@@ -1,27 +1,27 @@
-"use client"
-import { Fragment,useState } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import {images} from "../../assets/index"
-import Link from 'next/link'
+"use client";
+import { Fragment, useState } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { images } from "../../assets/index";
+import Link from "next/link";
 const navigation = [
-  { name: 'Home', href: '/', current: false},
-  { name: 'Features', href: 'features', current: false },
+  { name: "Home", href: "/", current: false },
+  { name: "Features", href: "features", current: false },
   // { name: 'Pricing', href: '#', current: false },
   // { name: 'Demo', href: '#', current: false },
-  { name: 'About', href: 'about', current: false },
-  { name: 'Team', href: 'team', current: false },
+  { name: "About", href: "about", current: false },
+  { name: "Team", href: "team", current: false },
   // { name: 'FAQ', href: '#', current: false },
-  { name: 'Contact', href: 'contact', current: false },
-  { name: 'Blog', href: 'blog', current: false },
-]
+  { name: "Contact", href: "contact", current: false },
+  { name: "Blog", href: "blog", current: false },
+];
 
-function classNames(...classes:any) {
-  return classes.filter(Boolean).join(' ')
+function classNames(...classes: any) {
+  return classes.filter(Boolean).join(" ");
 }
 
- const Header = () => {
-  const [isloggedin, setIsloggedin] = useState(false)
+const Header = () => {
+  const [isloggedin, setIsloggedin] = useState(false);
   return (
     <Disclosure as="nav" className="bg-black bg-opacity-60 z-40 top-0 sticky">
       {({ open }) => (
@@ -59,10 +59,12 @@ function classNames(...classes:any) {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          item.current
+                            ? "bg-gray-900 text-white"
+                            : " bg-black hover:bg-indigo-600 focus:ring-indigo-300",
+                          "rounded-md px-3 py-2 text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </Link>
@@ -71,29 +73,47 @@ function classNames(...classes:any) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {isloggedin ? <button
-                  type="button"
-                  className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button> :""}
+                {isloggedin ? (
+                  <button
+                    type="button"
+                    className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  >
+                    <span className="sr-only">View notifications</span>
+                    <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                ) : (
+                  ""
+                )}
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3 flex-row flex">
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
-                     {isloggedin ? <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      /> : "" } 
+                      {isloggedin ? (
+                        <img
+                          className="h-8 w-8 rounded-full"
+                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          alt=""
+                        />
+                      ) : (
+                        ""
+                      )}
                     </Menu.Button>
                   </div>
-                  <div className='flex flex-row md:text-xs lg:text-md max-sm:text-xs'>
-                      <Link className='px-1 py-1 mx-1 border hover:bg-blue-400 hover:border-black border-gray-500 rounded-lg' href="/login">Login</Link>
-                      <button className='px-1 py-1 mx-1 border  border-gray-500 hover:bg-blue-400 hover:border-black rounded-lg'>Sign Up</button>
+                  <div className="flex flex-row md:text-xs lg:text-md max-sm:text-xs">
+                    <Link
+                      className="px-1 py-1 mx-1   bg-black hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
+                      href="/login"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      href="register"
+                      className="px-1 py-1 mx-1   bg-black hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
+                    >
+                      Sign Up
+                    </Link>
                   </div>
                   <Transition
                     as={Fragment}
@@ -109,7 +129,10 @@ function classNames(...classes:any) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Your Profile
                           </a>
@@ -119,7 +142,10 @@ function classNames(...classes:any) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Settings
                           </a>
@@ -129,7 +155,10 @@ function classNames(...classes:any) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Sign out
                           </a>
@@ -150,10 +179,12 @@ function classNames(...classes:any) {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -163,8 +194,7 @@ function classNames(...classes:any) {
         </>
       )}
     </Disclosure>
-  )
-}
-
+  );
+};
 
 export default Header;
