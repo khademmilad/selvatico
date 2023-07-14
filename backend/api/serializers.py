@@ -1,34 +1,19 @@
-from rest_framework import generics, status
-from rest_framework.response import Response
-from .serializers import RegistrationSerializer, LoginSerializer
+from rest_framework import serializers
+from account.models import Account
 
 
-class RegistrationAPIView(generics.CreateAPIView):
-    serializer_class = RegistrationSerializer
+class RegistrationSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        max_length=128,
+        min_length=8,
+        write_only=True
+    )
 
-    def post(self, request):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.save()
-        return Response(
-            {
-                'user': serializer.data,
-                'message': 'User registered successfully.',
-            },
-            status=status.HTTP_201_CREATED
-        )
+    class Meta:
+        model = Account
+        fields = ['email', 'username', 'password', 'profile_image']
 
 
-class LoginAPIView(generics.CreateAPIView):
-    serializer_class = LoginSerializer
-
-    def post(self, request):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        return Response(
-            {
-                'user': serializer.validated_data,
-                'message': 'User logged in successfully.',
-            },
-            status=status.HTTP_200_OK
-        )
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField(max_length=60)
+    password = serializers.CharField(max_length=128, write_only=True)
