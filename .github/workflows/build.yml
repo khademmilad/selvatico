@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh user@141.95.0.236 "cd /selvatico && docker-compose pull && docker-compose up -d"
+          ssh ubuntu@141.95.0.236 "cd /selvatico && docker-compose pull && docker-compose up -d"
