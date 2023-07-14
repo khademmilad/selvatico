@@ -1,4 +1,19 @@
 from rest_framework import serializers
+from account.models import Account
 
-class HelloWorldSerializer(serializers.Serializer):
-    message = serializers.CharField(default="Hello World")
+
+class RegistrationSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        max_length=128,
+        min_length=8,
+        write_only=True
+    )
+
+    class Meta:
+        model = Account
+        fields = ['email', 'username', 'password', 'profile_image']
+
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField(max_length=60)
+    password = serializers.CharField(max_length=128, write_only=True)
