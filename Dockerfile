@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 # Copy the backend code into the container
-COPY . /app
+COPY ./backend /app
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
