@@ -2,18 +2,50 @@
 import React, { useEffect, useState } from "react";
 import login from "../../../public/login.png";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 type Props = {};
 
 const Login = (props: Props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const url = "http://141.95.0.236:8000/api/login/"
-  
-  const handleSubmit = (e:any) => {
-    e.preventDefault();
-    console.log(email)
-  };
+  const { register, handleSubmit , watch ,formState:{errors} } = useForm();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const onSubmit = (data:object) => console.log(data)
+  console.log(watch("email"))
+
+  // const loginUrl = "http://141.95.0.236:8000/api/login/"
+
+  // const handleSubmit = (e:any) => {
+  //   e.preventDefault();
+  //   const userdata = {
+  //     email : email,
+  //     password: password,
+  //   };
+
+  //   fetch(loginUrl, {
+  //     method:"POST",
+  //     body:JSON.stringify(userdata)
+  //   })
+  //   .then((res)=> res.json())
+  //   .then((userdata)=> {
+  //     if (userdata.success) {
+  //       setIsLoggedIn(true)
+  //     }
+  //   })
+  // };
+
+  // const useEffect = () => {
+  //   if (isLoggedIn) {
+  //     // Redirect to the home page.
+  //     const href = "/";
+  //     const { pathname } = window.location;
+  //     if (pathname !== href) {
+  //       window.location.href = href;
+  //     }
+  //   }
+
+  //   return null;
+  // };
+
   return (
     <section className="max-sm:p-16 p-16 max-w-7xl mx-auto h-screen">
       <div className="h-full">
@@ -23,7 +55,9 @@ const Login = (props: Props) => {
           </div>
 
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-            <form onSubmit={handleSubmit}>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <div className="flex flex-row items-center justify-center lg:justify-start">
                 <p className="mb-0 mr-4 text-lg">Sign in with</p>
                 <button
@@ -87,8 +121,10 @@ const Login = (props: Props) => {
                     id="email"
                     type="email"
                     placeholder="Email Address"
-                    onChange={(e)=> setEmail(e.target.value)}
-                  />
+                    {...register("email",{required:true})}
+                    
+                  /> 
+                  {errors.email?.type === "required" && "Email Address is required"}
                 </label>
               </div>
               <div className="w-full p-3">
@@ -98,8 +134,10 @@ const Login = (props: Props) => {
                     id="password"
                     type="password"
                     placeholder="Password"
-                    onChange={(e)=> setPassword(e.target.value)}
+                    {...register("password",{required:true,minLength:10})}
                   />
+                  {errors.password?.type === "required" && "Password is required"}
+                  
                 </label>
               </div>
 
@@ -108,7 +146,6 @@ const Login = (props: Props) => {
                   <input
                     className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
                     type="checkbox"
-                    value=""
                     id="exampleCheck2"
                   />
                   <label
