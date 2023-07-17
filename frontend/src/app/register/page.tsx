@@ -9,23 +9,24 @@ const Register = (props: Props) => {
  
   const { register , handleSubmit , watch , formState:{errors}}  = useForm()
   const [isRegistered, setIsRegistered] = useState(false);
-  const registerUrl = "http://141.95.0.236:8000/api/login/";
-  const onSubmit = (data:object) => console.log(data)
-  // const handleSubmit = (e: any) => {
-  //   e.preventDefault();
-   
+  const registerUrl = "http://141.95.0.236:8000/api/register/";
 
-  //   fetch(registerUrl, {
-  //     method: "POST",
-  //     body: JSON.stringify(userdata),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((userdata) => {
-  //       if (userdata.success) {
-  //         setIsRegistered(true);
-  //       }
-  //     });
-  // };
+
+  const onSubmit = async (data: object) => {
+    const res = await fetch(registerUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (res.status === 200) {
+      console.log("Login Successful");
+    } else {
+      console.log("login has failed");
+    }
+  };
 
   return (
     <section className="py-24 lg:py-28 bg-black overflow-hidden">

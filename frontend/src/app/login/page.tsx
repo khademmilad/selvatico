@@ -3,48 +3,33 @@ import React, { useEffect, useState } from "react";
 import login from "../../../public/login.png";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { error } from "console";
 
 type Props = {};
 
 const Login = (props: Props) => {
-  const { register, handleSubmit , watch ,formState:{errors} } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const onSubmit = (data:object) => console.log(data)
-  console.log(watch("email"))
+  const loginUrl = "http://141.95.0.236:8000/api/login/";
+  const onSubmit = async (data: object) => {
+    const res = await fetch(loginUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-  // const loginUrl = "http://141.95.0.236:8000/api/login/"
-
-  // const handleSubmit = (e:any) => {
-  //   e.preventDefault();
-  //   const userdata = {
-  //     email : email,
-  //     password: password,
-  //   };
-
-  //   fetch(loginUrl, {
-  //     method:"POST",
-  //     body:JSON.stringify(userdata)
-  //   })
-  //   .then((res)=> res.json())
-  //   .then((userdata)=> {
-  //     if (userdata.success) {
-  //       setIsLoggedIn(true)
-  //     }
-  //   })
-  // };
-
-  // const useEffect = () => {
-  //   if (isLoggedIn) {
-  //     // Redirect to the home page.
-  //     const href = "/";
-  //     const { pathname } = window.location;
-  //     if (pathname !== href) {
-  //       window.location.href = href;
-  //     }
-  //   }
-
-  //   return null;
-  // };
+    if (res.status === 200) {
+      console.log("Login Successful");
+    } else {
+      console.log("login has failed");
+    }
+  };
 
   return (
     <section className="max-sm:p-16 p-16 max-w-7xl mx-auto h-screen">
@@ -55,9 +40,7 @@ const Login = (props: Props) => {
           </div>
 
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-            >
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-row items-center justify-center lg:justify-start">
                 <p className="mb-0 mr-4 text-lg">Sign in with</p>
                 <button
@@ -121,10 +104,10 @@ const Login = (props: Props) => {
                     id="email"
                     type="email"
                     placeholder="Email Address"
-                    {...register("email",{required:true})}
-                    
-                  /> 
-                  {errors.email?.type === "required" && "Email Address is required"}
+                    {...register("email", { required: true })}
+                  />
+                  {errors.email?.type === "required" &&
+                    "Email Address is required"}
                 </label>
               </div>
               <div className="w-full p-3">
@@ -134,10 +117,10 @@ const Login = (props: Props) => {
                     id="password"
                     type="password"
                     placeholder="Password"
-                    {...register("password",{required:true,minLength:10})}
+                    {...register("password", { required: true, minLength: 10 })}
                   />
-                  {errors.password?.type === "required" && "Password is required"}
-                  
+                  {errors.password?.type === "required" &&
+                    "Password is required"}
                 </label>
               </div>
 
