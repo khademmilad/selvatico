@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up QEMU-based Docker runner
+        uses: docker/setup-qemu-action@v1
+
       - name: Deploy Docker Compose Project
         uses: appleboy/ssh-action@master
         with:
