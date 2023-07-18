@@ -20,6 +20,6 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
-            cd /selvatico
+            cd selvatico/
             git pull origin main
             docker-compose up --build -d
