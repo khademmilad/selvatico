@@ -27,6 +27,19 @@ services:
     depends_on:
       - web
     restart: always
+  
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ${APP_NAME}-frontend
+    volumes:
+      - ./frontend:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - web
+    restart: always
 
 
 # volumes:
