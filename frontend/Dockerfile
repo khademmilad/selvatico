@@ -13,6 +13,9 @@ RUN npm install
 # Copy the rest of the application code to the container
 COPY . .
 
+RUN npm install
+RUN npm list
+
 # Expose the port used by the React development server (if needed)
 EXPOSE 3000
 
