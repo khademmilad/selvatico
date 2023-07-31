@@ -23,7 +23,7 @@ function classNames(...classes: any) {
 const Header = () => {
   const [isloggedin, setIsloggedin] = useState(false);
   return (
-    <Disclosure as="nav" className="bg-black bg-opacity-60 z-40 top-0 sticky">
+    <Disclosure as="nav" className=" z-40 top-0 sticky">
       {({ open }) => (
         <>
           <div className=" mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 top-0 sticky">
@@ -60,8 +60,8 @@ const Header = () => {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "bg-gray-900 text-white"
-                            : " bg-black hover:bg-indigo-600 focus:ring-indigo-300",
+                            ? " text-white"
+                            : "  hover:bg-indigo-600 focus:ring-indigo-300",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -103,14 +103,14 @@ const Header = () => {
                   </div>
                   <div className="flex flex-row md:text-xs lg:text-md max-sm:text-xs">
                     <Link
-                      className="px-1 py-1 mx-1   bg-black hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
+                      className="px-1 py-1 mx-1    hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
                       href="/login"
                     >
                       Login
                     </Link>
                     <Link
                       href="register"
-                      className="px-1 py-1 mx-1   bg-black hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
+                      className="px-1 py-1 mx-1    hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
                     >
                       Sign Up
                     </Link>
