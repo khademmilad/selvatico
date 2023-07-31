@@ -105,7 +105,7 @@ const Features = () => {
               >
           <div className="flex flex-col max-sm:py-1 items-center max-sm:mb-6 px-10 py-5 border border-transparent rounded-full shadow-gray-900 shadow-lg bg-opacity-50 backdrop-filter backdrop-blur-lg ">
                <motion.li className="item flex flex-col justify-center items-center gap-2 " variants={item} >
-                  <img src={feature.svg.src} className="h-10 w-10" />
+                  <img src={feature.svg.src} className="h-10 w-10 "  />
                   <h3 className="text-md max-sm:gap-0 font-bold sm:text-md md:text-2xl text-green-300 ">
                     {feature.title}
                   </h3>

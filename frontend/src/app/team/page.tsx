@@ -15,7 +15,7 @@ const Team = (props: Props) => {
           </h1>
         </div>
       </div>
-      <div className="w-full bg-gray-800 px-10 pt-10">
+      <div className="w-full px-10 pt-10">
         <div className="container mx-auto">
           <div
             role="list"

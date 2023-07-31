@@ -29,7 +29,7 @@ const Register = (props: Props) => {
   };
 
   return (
-    <section className="py-24 lg:py-28 bg-black overflow-hidden">
+    <section className="py-24 lg:py-28 overflow-hidden">
       <div className="container px-4 mx-auto">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading mb-4 text-6xl text-white tracking-tighter">
@@ -109,7 +109,7 @@ const Register = (props: Props) => {
             </div>
             <div className="w-full p-3">
               <button
-                className="inline-block mb-7 px-5 py-4 w-full text-white text-center font-semibold tracking-tight bg-indigo-500 hover:bg-indigo-600 rounded-lg focus:ring-4 focus:ring-indigo-300 transition duration-200"
+                className="btn-grad btn-grad:hover"
                 type="submit"
               >
                 Create Free Account

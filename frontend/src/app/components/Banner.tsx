@@ -12,7 +12,7 @@ const Banner = (props: Props) => {
   }
   
   return (
-    <section className="bg-gray-800 text-white h-screen" >
+    <section className="  h-screen" >
   <div
     className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
   >
@@ -27,11 +27,11 @@ const Banner = (props: Props) => {
       Selvatico revolutionizes customer and user support with AI-powered automation. Gain insights, automate tasks, and deliver exceptional support experiences effortlessly. Elevate satisfaction, efficiency, and success with Selvatico.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <input type="text" placeholder='Email Address' className='block w-full rounded border border-blue-600 bg-gray-100 pr-12 pl-3 py-3 text-sm  font-medium text-gray-950 hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto'
+        <input type="text" placeholder='Email Address' className=' w-full rounded-xl border-blue-600 bg-gray-100 pr-32 pl-10 my-2 text-sm  font-medium text-gray-950  focus:outline-none focus:ring active:text-opacity-75 sm:w-auto'
         onChange={(e)=> setEmail(e.target.value)}
         value={email} />
         <button 
-        className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+        className="btn-grad btn-grad:hover"
         onClick={()=> handleJoin()}>
           Join our waiting list
         </button>
