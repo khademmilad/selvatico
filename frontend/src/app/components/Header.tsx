@@ -44,12 +44,12 @@ const Header = () => {
                   <img
                     className="block h-8 w-auto lg:hidden"
                     src={images.logo.src}
-                    alt="Your Company"
+                    alt="logo"
                   />
                   <img
                     className="hidden h-8 w-auto lg:block"
                     src={images.logo.src}
-                    alt="Your Company"
+                    alt="logo"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
@@ -103,14 +103,14 @@ const Header = () => {
                   </div>
                   <div className="flex flex-row md:text-xs lg:text-md max-sm:text-xs">
                     <Link
-                      className="px-1 py-1 mx-1    hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
+                      className=" px-3 py-2 text-sm font-medium hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
                       href="/login"
                     >
                       Login
                     </Link>
                     <Link
                       href="register"
-                      className="px-1 py-1 mx-1    hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
+                      className=" px-3 py-2 text-sm font-medium   hover:bg-indigo-600 focus:ring-indigo-300 rounded-lg"
                     >
                       Sign Up
                     </Link>

@@ -27,7 +27,7 @@ const Banner = (props: Props) => {
       Selvatico revolutionizes customer and user support with AI-powered automation. Gain insights, automate tasks, and deliver exceptional support experiences effortlessly. Elevate satisfaction, efficiency, and success with Selvatico.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <input type="text" placeholder='Email Address' className=' w-full rounded-xl border-blue-600 bg-gray-100 pr-32 pl-10 my-2 text-sm  font-medium text-gray-950  focus:outline-none focus:ring active:text-opacity-75 sm:w-auto'
+        <input type="text" placeholder='Email Address' className='w-full rounded-xl border-blue-600 bg-gray-100 pr-32 pl-10 my-2 py-4 text-sm  font-medium text-gray-950  focus:outline-none focus:ring active:text-opacity-75 sm:w-auto'
         onChange={(e)=> setEmail(e.target.value)}
         value={email} />
         <button 
