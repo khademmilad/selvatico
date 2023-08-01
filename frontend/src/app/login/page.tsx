@@ -25,7 +25,7 @@ const Login = (props: Props) => {
     });
 
     if (res.status === 200) {
-      console.log("Login Successful");
+      console.log(data);
     } else {
       console.log("login has failed");
     }
