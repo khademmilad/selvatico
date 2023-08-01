@@ -7,7 +7,7 @@ type Props = {};
 
 const Register = (props: Props) => {
  
-  const { register , handleSubmit , watch , formState:{errors}}  = useForm()
+  const { register , handleSubmit , formState:{errors}}  = useForm()
   const [isRegistered, setIsRegistered] = useState(false);
   const registerUrl = "http://141.95.0.236:8000/api/register/";
 
@@ -22,9 +22,9 @@ const Register = (props: Props) => {
     });
 
     if (res.status === 200) {
-      console.log("Login Successful");
+      console.log("Register Successful");
     } else {
-      console.log("login has failed");
+      console.log("Register has failed");
     }
   };
 
@@ -43,10 +43,10 @@ const Register = (props: Props) => {
               <label className="block">
                 <input
                   className="p-4 w-full text-gray-700 tracking-tight bg-white placeholder-gray-700 outline-none border border-gray-600 rounded-lg focus:border-indigo-500 transition duration-200"
-                  id="firstname"
+                  id="username"
                   type="text"
-                  placeholder="First Name"
-                  {...register("firstname",{required:true})}
+                  placeholder="Username"
+                  {...register("username",{required:true})}
                 />
                 {errors.firstname?.type === "required" && "Name is required"}
               </label>
@@ -109,6 +109,7 @@ const Register = (props: Props) => {
             </div>
             <div className="w-full p-3">
               <button
+                
                 className="btn-grad btn-grad:hover"
                 type="submit"
               >
