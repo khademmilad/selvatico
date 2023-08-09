@@ -33,7 +33,7 @@ const Login = (props: Props) => {
 
   return (
     <section className="max-sm:p-16 p-16 max-w-7xl mx-auto h-screen">
-      <div className="h-full">
+      <div className=" p-10 rounded-xl bg-opacity-10 mx-auto shadow-2xl">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
             <img src={login.src} className="w-full" alt="Sample image" />
