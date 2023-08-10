@@ -23,7 +23,7 @@ const Banner = (props: Props) => {
         Understand User Support
         <span className="sm:block"> Increase Satisfaction </span>
       </h1>
-      <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
+      <p className="mx-auto text-white mt-4 max-w-xl sm:text-xl/relaxed">
       Selvatico revolutionizes customer and user support with AI-powered automation. Gain insights, automate tasks, and deliver exceptional support experiences effortlessly. Elevate satisfaction, efficiency, and success with Selvatico.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">

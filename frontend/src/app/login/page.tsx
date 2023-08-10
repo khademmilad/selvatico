@@ -32,10 +32,10 @@ const Login = (props: Props) => {
   };
 
   return (
-    <section className="max-sm:p-16 p-16 max-w-7xl mx-auto h-screen">
-      <div className=" p-10 rounded-xl bg-opacity-10 mx-auto shadow-2xl">
+    <section className="max-sm:p-0 p-16 max-w-7xl mx-auto h-screen">
+      <div className=" p-10  rounded-xl bg-opacity-10 mx-auto shadow-2xl">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-          <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+          <div className="shrink-1 mb-12 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
             <img src={login.src} className="w-full" alt="Sample image" />
           </div>
 
@@ -97,10 +97,10 @@ const Login = (props: Props) => {
                 </p>
               </div>
 
-              <div className="w-full p-3">
+              <div className="w-full p-3 max-sm:p-0">
                 <label className="block">
                   <input
-                    className="p-4 w-full text-gray-700 tracking-tight bg-white placeholder-gray-700 outline-none border border-gray-600 rounded-lg focus:border-indigo-500 transition duration-200"
+                    className="p-4  w-full text-gray-700 tracking-tight bg-white placeholder-gray-700 outline-none border border-gray-600 rounded-lg focus:border-indigo-500 transition duration-200"
                     id="email"
                     type="email"
                     placeholder="Email Address"
@@ -110,7 +110,7 @@ const Login = (props: Props) => {
                     "Email Address is required"}
                 </label>
               </div>
-              <div className="w-full p-3">
+              <div className="w-full p-3 max-sm:p-0 max-sm:mt-5">
                 <label className="block">
                   <input
                     className="p-4 w-full text-gray-700 tracking-tight bg-white placeholder-gray-700 outline-none border border-gray-600 rounded-lg focus:border-indigo-500 transition duration-200"
@@ -124,7 +124,7 @@ const Login = (props: Props) => {
                 </label>
               </div>
 
-              <div className="mb-6 flex items-center justify-between max-sm:text-xs">
+              <div className="mb-6 mt-5 flex items-center justify-between max-sm:text-xs">
                 <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem] ">
                   <input
                     className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"

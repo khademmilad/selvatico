@@ -10,7 +10,7 @@ const Team = (props: Props) => {
           <p className="text-gray-500 text-lg text-center font-normal pb-3">
             BUILDING TEAM
           </p>
-          <h1 className="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">
+          <h1 className="xl:text-4xl text-3xl text-center text-gray-200 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">
             People Behind the Scene
           </h1>
         </div>
@@ -26,7 +26,7 @@ const Team = (props: Props) => {
               role="listitem"
               className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
             >
-              <div className="rounded overflow-hidden shadow-md bg-white text-gray-700">
+              <div className="rounded overflow-hidden shadow-2xl bg-transparent text-gray-50">
                 <div className="absolute -mt-20 w-full flex justify-center">
                   <div className="h-32 w-32">
                     <img
@@ -38,18 +38,18 @@ const Team = (props: Props) => {
                   </div>
                 </div>
                 <div className="px-6 mt-16">
-                  <h1 className="font-bold text-3xl text-center mb-1 text-gray-700">
+                  <h1 className="font-bold text-3xl text-center mb-1 text-gray-50">
                     Milad Khadem
                   </h1>
-                  <p className="text-gray-800 text-sm text-center">
+                  <p className="text-gray-50 text-sm text-center">
                     Backend & Database Engineer
                   </p>
-                  <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                  <p className="text-center text-gray-50 text-base pt-3 font-normal">
                     Milad is a backend and database engineer with 5+ years of
                     experience. He is passionate about building scalable and
                     reliable systems.
                   </p>
-                  <div className="w-full flex justify-center pt-5 pb-5">
+                  <div className="w-full flex justify-center  pt-5 pb-5">
                     <a
                       href="https://github.com/khademmilad"
                       target="_blank"
@@ -97,7 +97,7 @@ const Team = (props: Props) => {
               role="listitem"
               className="xl:w-1/3 lg:mx-3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
             >
-              <div className="rounded overflow-hidden shadow-md bg-white">
+              <div className="rounded overflow-hidden  shadow-2xl bg-transparent">
                 <div className="absolute -mt-20 w-full flex justify-center">
                   <div className="h-32 w-32">
                     <img
@@ -108,14 +108,14 @@ const Team = (props: Props) => {
                     />
                   </div>
                 </div>
-                <div className="px-6 mt-16">
-                  <h1 className="font-bold text-3xl text-center mb-1 text-gray-700 ">
+                <div className="px-6  mt-16">
+                  <h1 className="font-bold text-3xl text-center mb-1  text-gray-50 ">
                     Jawid Nezami
                   </h1>
-                  <p className="text-gray-800 text-sm text-center">
+                  <p className=" text-gray-50 text-sm text-center">
                     Frontend-Engineer
                   </p>
-                  <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                  <p className="text-center  text-gray-50 text-base pt-3 font-normal">
                     Jawid is a frontend developer and designer with 2+ years of
                     experience. He is passionate about creating user-friendly
                     and visually appealing web applications.
