@@ -86,7 +86,7 @@ const Features = () => {
   return (
     <section className="h-screen m-4 md:m-8 max-sm:pt-20 dark:bg-transparent pt-10 justify-center dark:text-gray-100 ">
       <div className="container mx-auto p-4 my-6 space-y-2 text-center ">
-        <h2 className="text-xl sm:text-2xl md:text-5xl font-bold">
+        <h2 className="text-xl sm:text-2xl md:text-5xl text-gray-50 font-bold">
           Elevating User Experience through Support
         </h2>
         <p className="dark:text-gray-50">Your satisfaction, our priority.</p>
