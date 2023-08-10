@@ -1,8 +1,9 @@
 from rest_framework import generics, status
-from .serializers import LoginSerializer, RegistrationSerializer
+from .serializers import UserLoginSerializer, RegistrationSerializer
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
+from account.models import Account
 
 
 
@@ -23,21 +24,18 @@ class RegistrationAPIView(generics.CreateAPIView):
         )
 
 
-class LoginAPIView(APIView):
-    serializer_class = LoginSerializer
+class UserLoginView(generics.GenericAPIView):
+    serializer_class = UserLoginSerializer
 
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        user = serializer.validated_data
+        email = serializer.validated_data['email']
+        user = Account.objects.get(email=email)
 
-        # If the authentication is successful, create a token
         refresh = RefreshToken.for_user(user)
-        data = {
-            'user': serializer.data,
+        return Response({
             'refresh': str(refresh),
             'access': str(refresh.access_token),
-            'message': 'User logged in successfully.',
-        }
-        return Response(data, status=status.HTTP_200_OK)
+        })
