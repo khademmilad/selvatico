@@ -29,7 +29,7 @@ const Team = (props: Props) => {
               <div className="rounded overflow-hidden shadow-2xl bg-transparent text-gray-50">
                 <div className="absolute -mt-20 w-full flex justify-center">
                   <div className="h-32 w-32">
-                    <img
+                    <img 
                       src="https://media.licdn.com/dms/image/C4E03AQF99PLfCcM91Q/profile-displayphoto-shrink_200_200/0/1632904419796?e=1694649600&v=beta&t=1X8wIR16TJE96zBoIYXPfXL6BpBPGsoEgcgeoiK54PI"
                       alt="Display Picture of Andres Berlin"
                       role="img"
