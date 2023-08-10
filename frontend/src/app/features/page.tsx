@@ -89,7 +89,7 @@ const Features = () => {
         <h2 className="text-xl sm:text-2xl md:text-5xl font-bold">
           Elevating User Experience through Support
         </h2>
-        <p className="dark:text-gray-400">Your satisfaction, our priority.</p>
+        <p className="dark:text-gray-50">Your satisfaction, our priority.</p>
       </div>
       <div className="container mx-auto grid justify-center text-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => (
@@ -109,7 +109,7 @@ const Features = () => {
                   <h3 className="text-md max-sm:gap-0 font-bold sm:text-md md:text-2xl text-green-300 ">
                     {feature.title}
                   </h3>
-                  <p>{feature.description}</p>
+                  <p className="text-gray-50">{feature.description}</p>
 				  </motion.li>
           </div>
               </motion.ul>
