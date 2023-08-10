@@ -30,7 +30,7 @@ const Register = (props: Props) => {
 
   return (
     <section className="py-24 lg:py-28 overflow-hidden">
-      <div className="container px-4 mx-auto">
+      <div className="container px-4 max-sm:px-10 mx-auto">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading mb-4 text-6xl text-white tracking-tighter">
             Create a free account
