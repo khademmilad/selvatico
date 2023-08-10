@@ -66,6 +66,7 @@ CORS_ALLOWED_ORIGINS = [
 #     'PATCH',
 #     'DELETE',
 #     'OPTIONS'
+
 # ]
 
 # CORS_ALLOW_HEADERS = [
