@@ -9,7 +9,7 @@ const Register = (props: Props) => {
  
   const { register , handleSubmit , formState:{errors}}  = useForm()
   const [isRegistered, setIsRegistered] = useState(false);
-  const registerUrl = "http://141.95.0.236:8000/api/register/";
+  const registerUrl = "http://127.0.0.1:8000/api/register/";
 
 
   const onSubmit = async (data: object) => {

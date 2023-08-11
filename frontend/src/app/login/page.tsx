@@ -14,7 +14,8 @@ const Login = (props: Props) => {
     formState: { errors },
   } = useForm();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const loginUrl = "http://141.95.0.236:8000/api/login/";
+  // const loginUrl = "http://141.95.0.236:8000/api/login/";
+  const loginUrl = "http://127.0.0.1:8000/api/login/";
   const onSubmit = async (data: object) => {
     const res = await fetch(loginUrl, {
       method: "POST",
